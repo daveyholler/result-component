@@ -11,6 +11,7 @@ import {
   EuiText,
   EuiTextColor,
 } from '@elastic/eui';
+import { ResultActions, ActionProps } from './result_actions';
 
 interface MetaDataProps {
   id: string;
@@ -21,8 +22,8 @@ interface MetaDataProps {
 
 interface Props {
   title: string;
-  actions?: any[];
   metaData: MetaDataProps;
+  actions: ActionProps[];
 }
 
 interface TermDef {
@@ -110,10 +111,15 @@ export const ResultHeader: React.FC<Props> = ({
   )
   return (
     <EuiText size="s">
-      <EuiFlexGroup alignItems="center">
+      <EuiFlexGroup alignItems="center" gutterSize="s">
         <EuiFlexItem>
           <EuiLink><strong>{title}</strong></EuiLink>
         </EuiFlexItem>
+        {actions.length >= 1 && (
+          <EuiFlexItem grow={false}>
+            <ResultActions actions={actions} />
+          </EuiFlexItem>
+        )}
         <EuiFlexItem grow={false}>
           {popover}
         </EuiFlexItem>

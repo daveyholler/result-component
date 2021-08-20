@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.resultField:nth-child(odd) {
+  background-color: #F5F7FA;
+}
+
+.resultField {
+  padding: 0.25rem .5rem;
+}
+
+.resultExpandCollapse {
+  border-left: 1px solid #D3DAE6;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding: 0 0 0 .5rem;
+}
