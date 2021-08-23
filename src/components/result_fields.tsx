@@ -1,5 +1,6 @@
 import React from 'react';
-import { ResultField, ResultFieldProps } from './result_field';
+import { ResultField } from './result_field';
+import { ResultFieldProps } from './types';
 
 interface Props {
   fields: ResultFieldProps[];
@@ -9,7 +10,7 @@ export const ResultFields: React.FC<Props> = ({
   fields
 }) => {
   return (
-    <>
+    <div className="resultFieldList">
       {fields.map((field, index) => (
         <ResultField
           iconType={field.iconType}
@@ -17,6 +18,6 @@ export const ResultFields: React.FC<Props> = ({
           fieldValue={field.fieldValue}
         />
       ))}
-    </>
+    </div>
   )
 }

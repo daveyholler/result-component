@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { EuiButtonIcon, EuiFlexGroup, EuiFlexItem, EuiPanel, EuiToolTip } from '@elastic/eui';
-import { ResultHeader } from './components/result_header';
-import { ResultFields } from './components/result_fields';
+import React from 'react';
+import { Result } from './components/result';
+import { EuiSpacer } from '@elastic/eui';
+
+const log = () => {
+  console.log('You clicked')
+}
 
 const actions = [
   {
@@ -11,8 +14,27 @@ const actions = [
   }, {
     label: '108 Clicks',
     iconType: 'plus',
-    color: 'default'
+    color: 'primary',
+    onClick: log
   }
+]
+
+const moreActions = [
+  {
+    label: 'Promote',
+    iconType: 'menuUp',
+    color: 'primary',
+    onClick: log
+  },
+]
+
+const stillMoreActions = [
+  {
+    label: 'Demote',
+    iconType: 'menuDown',
+    color: 'danger',
+    onClick: log
+  },
 ]
 
 const fields = [
@@ -48,42 +70,55 @@ const fields = [
 ]
 
 function App() {
-  const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div style={{ width: '60rem', margin: '10rem auto' }}>
-      <EuiPanel hasBorder paddingSize="s">
-        <EuiFlexGroup gutterSize="s">
-          <EuiFlexItem>
-            <EuiFlexGroup direction="column" gutterSize="s">
-              <EuiFlexItem grow={false}>
-                <ResultHeader
-                  title="A very well-written title"
-                  actions={actions}
-                  metaData={{
-                    id: "098DJV02389UJF09I3",
-                    lastUpdated: "2021-08-31",
-                    clickCount: 42121,
-                    engineId: "jnco-jeans"
-                  }}
-                />
-              </EuiFlexItem>
-              <EuiFlexItem>
-                <ResultFields fields={isExpanded ? fields : fields.slice(0, 3)} />
-              </EuiFlexItem>
-            </EuiFlexGroup>
-          </EuiFlexItem>
-          <EuiFlexItem grow={false}>
-            <div className="resultExpandCollapse">
-              <EuiToolTip content={`Show ${fields.length - 3} ${isExpanded ? 'fewer' : 'more'} fields`}>
-                <EuiButtonIcon
-                  iconType={isExpanded ? 'fold' : 'unfold'}
-                  color="subdued"
-                  onClick={() => setIsExpanded(!isExpanded)}/>
-              </EuiToolTip>
-            </div>
-          </EuiFlexItem>
-        </EuiFlexGroup>
-      </EuiPanel>
+    <div className="app">
+      <Result
+        actions={actions}
+        fields={fields}
+        isDraggable
+        metaData={{
+          id: "098DJV02389UJF09I3",
+          lastUpdated: "2021-08-31",
+          clickCount: 42121,
+          engineId: "jnco-jeans"
+        }}
+      />
+      <EuiSpacer />
+      <Result
+        actions={moreActions}
+        fields={fields}
+        isCheckable
+        metaData={{
+          id: "098DJV02389UJF09I3",
+          lastUpdated: "2021-08-31",
+          clickCount: 42121,
+          engineId: "jnco-jeans"
+        }}
+      />
+      <EuiSpacer />
+      <Result
+        actions={stillMoreActions}
+        fields={fields}
+        metaData={{
+          id: "098DJV02389UJF09I3",
+          lastUpdated: "2021-08-31",
+          clickCount: 42121,
+          engineId: "jnco-jeans"
+        }}
+      />
+      <EuiSpacer />
+      <Result
+        actions={actions}
+        fields={fields}
+        isCheckable
+        isDraggable
+        metaData={{
+          id: "098DJV02389UJF09I3",
+          lastUpdated: "2021-08-31",
+          clickCount: 42121,
+          engineId: "jnco-jeans"
+        }}
+      />
     </div>
   );
 }

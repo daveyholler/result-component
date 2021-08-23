@@ -1,12 +1,6 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiIcon, EuiText, EuiToken } from '@elastic/eui';
-import { IconType } from '@elastic/eui/src/components/icon/icon';
-
-export interface ResultFieldProps {
-  iconType: IconType;
-  fieldName: string;
-  fieldValue: string;
-}
+import { ResultFieldProps } from './types';
 
 export const ResultField: React.FC<ResultFieldProps> = ({
   iconType = 'tokenString',

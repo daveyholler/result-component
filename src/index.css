@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.app {
+  width: 60rem;
+  padding: 10rem 0;
+  margin: 0 auto;
+}
+
 .resultField:nth-child(odd) {
   background-color: #F5F7FA;
 }
@@ -20,10 +26,47 @@ code {
   padding: 0.25rem .5rem;
 }
 
-.resultExpandCollapse {
+.resultCheckDragColumn {
+  border-right: 1px solid #D3DAE6;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  padding: .5rem;
+}
+
+.resultCheckDragColumn__emptySpacer {
+  display: inline-block;
+  width: 0.25rem;
+  flex-grow: 1;
+}
+
+.resultCheckDragColumn .euiCheckbox.euiCheckbox--noLabel {
+  margin: 0.25rem;
+}
+
+.resultExpandColumn {
   border-left: 1px solid #D3DAE6;
   align-items: flex-start;
   justify-content: center;
   height: 100%;
-  padding: 0 0 0 .5rem;
+  padding: .5rem;
+}
+
+.resultActionButton .euiButtonContent > * + *{
+  margin-inline-start: .25rem /* $euiSizeXS */;
+}
+
+.resultFieldList {
+  padding: .25rem .5rem .5rem .5rem;
+}
+
+.resultHeader {
+  padding: 0.5rem .5rem 0 .5rem;
+}
+
+.euiPanel.euiPanel--hasBorder.result__selected {
+  border: 1px solid #0077CC;
+  box-shadow:0 0 0 1px #07c, 0 6px 12px 1px rgba(0,0,0,.1), 0 4px 4px 1px rgba(0,0,0,.05), 0 2px 2px 0 rgba(0,0,0,.1);
 }

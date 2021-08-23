@@ -11,14 +11,9 @@ import {
   EuiText,
   EuiTextColor,
 } from '@elastic/eui';
-import { ResultActions, ActionProps } from './result_actions';
-
-interface MetaDataProps {
-  id: string;
-  lastUpdated: string;
-  engineId: string;
-  clickCount: number;
-}
+import { ResultActions } from './result_actions';
+import { ActionProps } from './types';
+import { MetaDataProps } from './types';
 
 interface Props {
   title: string;
@@ -110,20 +105,22 @@ export const ResultHeader: React.FC<Props> = ({
     </EuiPopover>
   )
   return (
-    <EuiText size="s">
-      <EuiFlexGroup alignItems="center" gutterSize="s">
-        <EuiFlexItem>
-          <EuiLink><strong>{title}</strong></EuiLink>
-        </EuiFlexItem>
-        {actions.length >= 1 && (
-          <EuiFlexItem grow={false}>
-            <ResultActions actions={actions} />
+    <div className="resultHeader">
+      <EuiText size="s">
+        <EuiFlexGroup alignItems="center" gutterSize="s">
+          <EuiFlexItem>
+            <EuiLink><strong>{title}</strong></EuiLink>
           </EuiFlexItem>
-        )}
-        <EuiFlexItem grow={false}>
-          {popover}
-        </EuiFlexItem>
-      </EuiFlexGroup>
-    </EuiText>
+          {actions.length >= 1 && (
+            <EuiFlexItem grow={false}>
+              <ResultActions actions={actions} />
+            </EuiFlexItem>
+          )}
+          <EuiFlexItem grow={false}>
+            {popover}
+          </EuiFlexItem>
+        </EuiFlexGroup>
+      </EuiText>
+    </div>
   )
 }

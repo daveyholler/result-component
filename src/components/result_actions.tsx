@@ -4,17 +4,10 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiIcon,
-  EuiTextColor,
-  IconType
+  EuiText,
 } from '@elastic/eui';
-import { EuiIconProps } from '@elastic/eui';
 
-export interface ActionProps {
-  iconType?: IconType | string;
-  label: string;
-  link?: string;
-  color?: string;
-}
+import { ActionProps } from './types';
 
 interface SingleAction {
   action: ActionProps;
@@ -25,7 +18,15 @@ interface Props {
 }
 
 const LinkAction: React.FC<SingleAction> = ({ action }) => (
-  <EuiButtonEmpty>{action.label}</EuiButtonEmpty>
+  <EuiButtonEmpty
+    className="resultActionButton"
+    flush="both" style={{ fontWeight: 700 }}
+    size="xs"
+    // @ts-ignore
+    color={action.color || 'primary'}
+    iconType={action.iconType}>
+    {action.label}
+  </EuiButtonEmpty>
 )
 
 const TextAction: React.FC<SingleAction> = ({ action }) => (
@@ -36,9 +37,11 @@ const TextAction: React.FC<SingleAction> = ({ action }) => (
       </EuiFlexItem>
     )}
     <EuiFlexItem grow={false}>
-      <strong>
-        <EuiTextColor color={action.color || 'default' }>{action.label}</EuiTextColor>
-      </strong>
+      <EuiText size="xs" color={action.color || 'default' }>
+        <strong>
+          {action.label}
+        </strong>
+      </EuiText>
     </EuiFlexItem>
   </EuiFlexGroup>
 )
@@ -47,10 +50,10 @@ export const ResultActions: React.FC<Props> = ({
   actions
 }) => {
   return (
-    <EuiFlexGroup alignItems="center" gutterSize="m">
+    <EuiFlexGroup alignItems="center" gutterSize="s">
       {actions.map((action: ActionProps) => (
         <EuiFlexItem grow={false}>
-          {action.link ? (
+          {action.onClick ? (
             <LinkAction action={action} />
           ) : (
             <TextAction action={action} />
