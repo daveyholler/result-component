@@ -1,17 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .app {
   width: 60rem;
   padding: 10rem 0;
@@ -19,39 +5,39 @@ code {
 }
 
 .resultField:nth-child(odd) {
-  background-color: #F5F7FA;
+  background-color: #F5F7FA; /* $euiColorLightestShade */
 }
 
 .resultField {
-  padding: 0.25rem .5rem;
+  padding: 0.25rem .5rem; /* $euiSizeXS $euiSizeS */
 }
 
 .resultCheckDragColumn {
-  border-right: 1px solid #D3DAE6;
+  border-right: 1px solid #D3DAE6; /* $euiBorderThin */
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
   height: 100%;
-  padding: .5rem;
+  padding: .5rem; /* $euiSizeS */
 }
 
 .resultCheckDragColumn__emptySpacer {
   display: inline-block;
-  width: 0.25rem;
+  width: 0.25rem; /* $euiSizeXS */
   flex-grow: 1;
 }
 
 .resultCheckDragColumn .euiCheckbox.euiCheckbox--noLabel {
-  margin: 0.25rem;
+  margin: 0.25rem; /* $euiSizeXS */
 }
 
 .resultExpandColumn {
-  border-left: 1px solid #D3DAE6;
+  border-left: 1px solid #D3DAE6; /* $euiBorderThin */
   align-items: flex-start;
   justify-content: center;
   height: 100%;
-  padding: .5rem;
+  padding: .5rem; /* $euiSizeS */
 }
 
 .resultActionButton .euiButtonContent > * + *{
@@ -59,14 +45,14 @@ code {
 }
 
 .resultFieldList {
-  padding: .25rem .5rem .5rem .5rem;
+  padding: .25rem .5rem .5rem .5rem; /* $euiSizeXS $euiSizeS $euiSizeS $euiSizeS */
 }
 
 .resultHeader {
-  padding: 0.5rem .5rem 0 .5rem;
+  padding: 0.5rem .5rem 0 .5rem; /* $euiSizeS $euiSizeS 0 $euiSizeS */
 }
 
 .euiPanel.euiPanel--hasBorder.result__selected {
-  border: 1px solid #0077CC;
-  box-shadow:0 0 0 1px #07c, 0 6px 12px 1px rgba(0,0,0,.1), 0 4px 4px 1px rgba(0,0,0,.05), 0 2px 2px 0 rgba(0,0,0,.1);
+  border: 1px solid #0077CC; /* $euiColorPrimary */
+  box-shadow:0 0 0 1px #07c, 0 6px 12px 1px rgba(0,0,0,.1), 0 4px 4px 1px rgba(0,0,0,.05), 0 2px 2px 0 rgba(0,0,0,.1); /* EUI Bottom Shadow with an added blue 1px spread inset */
 }

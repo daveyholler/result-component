@@ -29,6 +29,7 @@ const LinkAction: React.FC<SingleAction> = ({ action }) => (
   </EuiButtonEmpty>
 )
 
+// Maybe allow users to pass hrefs as well as an onClick and have the dom render either a button or a link
 const TextAction: React.FC<SingleAction> = ({ action }) => (
   <EuiFlexGroup gutterSize="xs" alignItems="center">
     {action.iconType && (
